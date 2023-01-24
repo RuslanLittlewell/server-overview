@@ -1,0 +1,124 @@
+@import "@styles/colors.scss";
+
+.table {
+  border-radius: 10px;
+  box-shadow: $table-shadow;
+  background-color: #fff;
+  &__head {
+    display: grid;
+    padding: 10px 20px;
+    position: sticky;
+    font-weight: 600;
+    font-size: 14px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px 10px 0 0;
+    top: 0;
+
+    &--actions {
+      position: absolute;
+      top: 50%;
+      right: 5px;
+      display: flex;
+      width: 100%;
+      justify-content: flex-end;
+      gap: 5px;
+      align-items: center;
+      transform: translateY(-50%);
+
+      button {
+        background-color: transparent;
+        border: none;
+
+        svg {
+          font-size: 14px;
+        }
+      }
+    }
+    & > div {
+      position: relative;
+      border-right: 1px solid $gray-2;
+      margin-right: 20px;
+
+      &:last-child {
+        border: none;
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    height: 86vh;
+    overflow: auto;
+    grid-template-rows: max-content;
+    border-radius: 0 0 10px 10px;
+    position: relative;
+
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+    
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 0 0 10px 0;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 5px;
+      height: 50px;
+    }
+    
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    &--sceleton {
+      padding: 0 20px;
+    }
+
+    &--no-data {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%);
+
+      svg {
+        font-size: 40px;
+      }
+    }
+  }
+
+  &__row {
+    display: grid;
+    align-items: center;
+    border-bottom: 1px solid $gray-1;
+    padding: 10px 20px;
+    transition: all 0.1s ease-in-out;
+    font-size: 14px;
+
+    &--status {
+      display: grid;
+      align-items: center;
+      gap: 10px;
+      grid-template-columns: 50px 10px;
+    }
+    
+    &:nth-child(even) {
+      background-color: rgba(245, 245, 245, 0.5);
+    }
+
+    &--list {
+      list-style: none;
+    }
+
+    &:hover {
+      background-color: $table-row-hover;
+    }
+  }
+}
